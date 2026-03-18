@@ -1,0 +1,73 @@
+.export-widget {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    position: fixed;
+    bottom: 120px;
+    right: 10px;
+    overflow: hidden;
+    z-index: 1000;
+    cursor: pointer;
+    .wave-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+      
+    .wave-1 {
+      position: absolute;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background-color: rgba(147, 197, 253, 0.6); /* bg-blue-300 with opacity */
+      border-radius: 40%;
+      animation: wave-spin 10s infinite linear reverse;
+      transition: all 700ms ease-out;
+      z-index: 0;
+      left: -50%;
+    }
+      
+    .wave-2 {
+      position: absolute;
+      left: 50%;
+      width: 200%;
+      height: 200%;
+      background-color: rgb(59, 130, 246); /* bg-blue-500 */
+      border-radius: 38%;
+      animation: wave-spin 6s linear infinite;
+      transition: all 700ms ease-out;
+      z-index: 10;
+      left: -50%;
+    }
+
+    @keyframes wave-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .progress-label {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+      &.white-lable {
+        color: #fff;
+      }
+    }
+}
+
+.e-visible {
+  display: block;
+}
+
+.e-hidden {
+  display: none;
+}
