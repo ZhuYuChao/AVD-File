@@ -2,13 +2,35 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background-color: aliceblue;
+    background: linear-gradient(145deg, #e6f2ff, #c4ddf5);
     position: fixed;
     bottom: 120px;
     right: 10px;
     overflow: hidden;
     z-index: 1000;
     cursor: pointer;
+    box-shadow:
+      4px 4px 10px rgba(0, 0, 0, 0.15),
+      -2px -2px 8px rgba(255, 255, 255, 0.8),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+      inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow:
+        6px 6px 14px rgba(0, 0, 0, 0.2),
+        -3px -3px 10px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    }
+
+    &:active {
+      box-shadow:
+        2px 2px 6px rgba(0, 0, 0, 0.15),
+        -1px -1px 4px rgba(255, 255, 255, 0.7),
+        inset 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
     .wave-container {
       position: relative;
       width: 100%;
@@ -66,8 +88,27 @@
 
 .e-visible {
   display: block;
+  animation: bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .e-hidden {
   display: none;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) translateY(-5px);
+  }
+  70% {
+    transform: scale(0.95) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
